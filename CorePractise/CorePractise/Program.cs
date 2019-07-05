@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core.Net
+namespace CorePractise
 {
     class Program
     {
