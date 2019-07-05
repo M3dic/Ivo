@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ivo", "Ivo\Ivo.csproj", "{821938AC-1925-4745-8D45-4791F3C9915D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Net", "Core.Net\Core.Net.csproj", "{75D150A3-B6BF-4F38-9457-A6EDABAB846E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{821938AC-1925-4745-8D45-4791F3C9915D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{821938AC-1925-4745-8D45-4791F3C9915D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{821938AC-1925-4745-8D45-4791F3C9915D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{821938AC-1925-4745-8D45-4791F3C9915D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75D150A3-B6BF-4F38-9457-A6EDABAB846E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D150A3-B6BF-4F38-9457-A6EDABAB846E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D150A3-B6BF-4F38-9457-A6EDABAB846E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D150A3-B6BF-4F38-9457-A6EDABAB846E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
