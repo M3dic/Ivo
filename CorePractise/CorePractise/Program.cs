@@ -7,7 +7,15 @@ namespace CorePractise
     {
         static void Main(string[] args)
         {
-           
+            List<Stars> stars = new List<Stars>();
+            Console.Write("How many stars: ");
+            int num = int.Parse(Console.ReadLine());
+            if (num > 2000) { Console.WriteLine("Number should be lower than 2000"); num = int.Parse(Console.ReadLine()); }
+            for (int i = 0; i < num; i++)
+            {
+                string[] line = Console.ReadLine().Split();
+                Stars star = new Stars(line[0], double.Parse(line[1].Split("")), line[2], double.Parse(line[3]), line[4]);
+            }
         }
     }
     public class Stars
@@ -36,7 +44,7 @@ namespace CorePractise
                     case "7": this.Classific = classification.subdwarfs.ToString(); break;
                     case "8": this.Classific = classification.reddwarfs.ToString(); break;
                     case "9": this.Classific = classification.browndwarfs.ToString(); break;
-                    default:  this.Classific = "Nope"; break;
+                    default: this.Classific = "Nope"; break;
                 }
             }
         }
@@ -47,11 +55,15 @@ namespace CorePractise
         public string Constellation { get; set; }
         private string constellation { get { return Constellation; } set { if (value.Length > 30) this.Constellation = value.Remove(30); else this.Constellation = value; } }
 
-        public Stars()
+        public Stars(string name, double distance, string clasification, double mass, string constellation)
         {
-           
+            this.name = name;
+            this.distance = distance;
+            this.NumberClassification = clasification;
+            this.mass = mass;
+            this.constellation = constellation;
         }
-       
+
 
     }
 }
