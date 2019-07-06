@@ -12,15 +12,15 @@ namespace CorePractise
     }
     public class Stars
     {
-        private string name { get; set; }
-        public string Name { get { return name; } set { if (value.Length > 20) { this.name = value.Remove(20); } else this.name = value; } }
+        public string Name { get; set; }
+        private string name { get { return Name; } set { if (value.Length > 20) { this.Name = value.Remove(20); } else this.Name = value; } }
 
-        private double distance { get; set; }
-        public double Distance { get { return this.distance; } set { if (value < 0) { this.distance = 0; } else this.distance = value; } }
+        public double Distance { get; set; }
+        private double distance { get { return this.Distance; } set { if (value < 0) { this.Distance = 0; } else this.Distance = value; } }
 
-        public enum classification { hipergigants, ultragigants, freshgigants, gigants, subgigants, dwarfs, subdwarfs, reddwarfs, browndwarfs };
-        private string Classific { get; set; }
-        private string NUmberClassification
+        private enum classification { hipergigants, ultragigants, freshgigants, gigants, subgigants, dwarfs, subdwarfs, reddwarfs, browndwarfs };
+        public string Classific { get; set; }
+        private string NumberClassification
         {
             get { return Classific; }
             set
@@ -41,11 +41,11 @@ namespace CorePractise
             }
         }
 
-        private double mass { get; set; }
-        public double Mass { get { return mass; } set { if (value < 0) this.mass = 0; else this.mass = value; } }
+        public double Mass { get; set; }
+        private double mass { get { return Mass; } set { if (value < 0) this.Mass = 0; else this.Mass = value; } }
 
-        private string constellation { get; set; }
-        public string Constellation { get { return constellation; } set { if (value.Length > 30) this.constellation = value.Remove(30); else this.constellation = value; } }
+        public string Constellation { get; set; }
+        private string constellation { get { return Constellation; } set { if (value.Length > 30) this.Constellation = value.Remove(30); else this.Constellation = value; } }
 
         public Stars()
         {
