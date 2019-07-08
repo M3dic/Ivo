@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CorePractise
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             List<Stars> stars = new List<Stars>();
@@ -13,8 +15,21 @@ namespace CorePractise
             if (num > 2000) { Console.WriteLine("Number should be lower than 2000"); num = int.Parse(Console.ReadLine()); }
             for (int i = 0; i < num; i++)
             {
-                string[] line = Console.ReadLine().Split();
-                Stars star = new Stars(line[0], double.Parse(line[1].Split("")), line[2], double.Parse(line[3]), line[4]);
+                string[] line = Console.ReadLine().Split(",").ToArray();
+                Stars star = new Stars(line[0], double.Parse(line[1].Split().ToArray().Skip(1).First()), line[2], double.Parse(line[3].Split().ToArray().Skip(1).First()), line[4]);
+                stars.Add(star);
+            }
+            PrintOrderedbyDistance(stars);
+            Console.ReadLine();
+            
+        }
+
+        private static void PrintOrderedbyDistance(List<Stars> stars)
+        {
+            stars.OrderBy(x => x.Distance);
+            foreach (var item in stars)
+            {
+                Console.WriteLine(item.Name + " " + item.Distance + " " + item.Classific + " " + item.Mass + " " + item.Constellation);
             }
         }
     }
