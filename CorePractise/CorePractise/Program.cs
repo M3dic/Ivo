@@ -16,18 +16,53 @@ namespace CorePractise
             for (int i = 0; i < num; i++)
             {
                 string[] line = Console.ReadLine().Split(",").ToArray();
-                Stars star = new Stars(line[0], double.Parse(line[1].Split(" ").ToArray().Skip(1).First().Replace(".",",")), line[2], double.Parse(line[3].Split(" ").ToArray().Skip(1).First().Replace(".",",")), line[4]);
+                Stars star = new Stars(line[0], double.Parse(line[1].Split(" ").ToArray().Skip(1).First().Replace(".", ",")), line[2], double.Parse(line[3].Split(" ").ToArray().Skip(1).First().Replace(".", ",")), line[4].Trim());
                 stars.Add(star);
             }
+            Console.WriteLine("Task2 - Print stars ordered by distance: ");
             PrintOrderedbyDistance(stars);
+            Console.WriteLine("Task3 - Print stars ordered by Constellation and then by mass: ");
+            PrintOrderedByConstellation(stars);
+            Console.WriteLine("Task4 - Print Constellation avarage mass: ");
+            PrintConstellationAvarageMass(stars);
             Console.ReadLine();
-            
+        }
+
+        private static void PrintConstellationAvarageMass(List<Stars> stars)
+        {
+            Dictionary<string, double[]> avaragemass = new Dictionary<string, double[]>();
+            int[] ConstellationCounting = new int[stars.Count];
+            foreach (var item in stars)
+            {
+                if (avaragemass.Keys.Contains(item.Constellation))
+                {
+                    avaragemass[item.Constellation][0] += item.Mass;
+                    avaragemass[item.Constellation][1] += 1;
+                }
+                else
+                {
+                    avaragemass.Add(item.Constellation, new double[] { item.Mass, 1 });
+                }
+            }
+            foreach (var item in avaragemass)
+            {
+                Console.WriteLine(item.Key + " " + item.Value[0]/item.Value[1]);
+            }
+        }
+
+        private static void PrintOrderedByConstellation(List<Stars> stars)
+        {
+            List<Stars> OrderedStars = stars.OrderBy(x => x.Constellation).ThenByDescending(x => x.Mass).ToList();
+            foreach (var item in OrderedStars)
+            {
+                Console.WriteLine(item.Name + " " + item.Distance + " " + item.Classific + " " + item.Mass + " " + item.Constellation);
+            }
         }
 
         private static void PrintOrderedbyDistance(List<Stars> stars)
         {
-            List<Stars> orderedStars = stars.OrderByDescending(x => x.Distance).ToList();
-            foreach (var item in orderedStars)
+            List<Stars> OrderedStars = stars.OrderByDescending(x => x.Distance).ToList();
+            foreach (var item in OrderedStars)
             {
                 Console.WriteLine(item.Name + " " + item.Distance + " " + item.Classific + " " + item.Mass + " " + item.Constellation);
             }
