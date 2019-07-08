@@ -16,7 +16,7 @@ namespace CorePractise
             for (int i = 0; i < num; i++)
             {
                 string[] line = Console.ReadLine().Split(",").ToArray();
-                Stars star = new Stars(line[0], double.Parse(line[1].Split().ToArray().Skip(1).First()), line[2], double.Parse(line[3].Split().ToArray().Skip(1).First()), line[4]);
+                Stars star = new Stars(line[0], double.Parse(line[1].Split(" ").ToArray().Skip(1).First().Replace(".",",")), line[2], double.Parse(line[3].Split(" ").ToArray().Skip(1).First().Replace(".",",")), line[4]);
                 stars.Add(star);
             }
             PrintOrderedbyDistance(stars);
@@ -26,8 +26,8 @@ namespace CorePractise
 
         private static void PrintOrderedbyDistance(List<Stars> stars)
         {
-            stars.OrderBy(x => x.Distance);
-            foreach (var item in stars)
+            List<Stars> orderedStars = stars.OrderByDescending(x => x.Distance).ToList();
+            foreach (var item in orderedStars)
             {
                 Console.WriteLine(item.Name + " " + item.Distance + " " + item.Classific + " " + item.Mass + " " + item.Constellation);
             }
